@@ -22,7 +22,7 @@ function SideNavigationBar({ children }) {
 
   return (
     <>
-      <Box sx={{ width: "100vw", background: "#1E1E1E" }}>
+      <Box sx={{ width: "100%", background: "#1E1E1E" }}>
         <Grid container spacing={0}>
           {/* Navigation bar side */}
           <Grid
@@ -437,7 +437,7 @@ function SideNavigationBar({ children }) {
                   />
                 </Box>
               </Box>
-              <Box sx={{ p: 3,width:'100%' }}>
+              <Box sx={{ p: 3,width:'100%',overflow:'hidden' }}>
                 <main>{children}</main>
               </Box>
             </Box>
