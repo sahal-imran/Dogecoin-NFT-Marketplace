@@ -39,7 +39,7 @@ function TopNavBar() {
           }}
         >
           {/* Logo */}
-          <Box sx={{ width: "242px", height: "53px",mr:10 }}>
+          <Box sx={{ width: {sm:"242px",xs:"200px"}, height: "53px",mr:10 }}>
             <img
               src="/assets/logo.svg"
               alt="logo"

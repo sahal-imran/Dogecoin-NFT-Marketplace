@@ -1,26 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box !important;
 }
-body{
-  font-family: 'Syne', sans-serif;
+body {
+  font-family: "Syne", sans-serif;
   transition: all 0.4s ease;
 }
-#Banner{
-  background-image: url('/public/assets/HomeBanner.svg');
-  object-fit: cover;
+#Banner,
+#ExploreBanner {
+  background-image: url("/public/assets/HomeBanner.svg");
   background-position: center;
-  background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-size: cover;
+}
+#ExploreBanner {
+  background-image: url("/public/assets/ExploreBanner.svg");
 }
 
-
-
-
-@media screen and (max-width : 1000px) {
-  #Banner{
-    background-size: auto;
-  }
+@media screen and (max-width: 1000px) {
 }
