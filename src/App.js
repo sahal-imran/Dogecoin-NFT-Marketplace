@@ -4,16 +4,18 @@ import Sidebar from "./components/SideNavigationBar/SideNavigationBar";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import TopNavBar from "./components/TopNavBar/TopNavBar";
-import ExploreCollection from "./components/ExploreCollection/ExploreCollection"
+import ExploreCollection from "./components/ExploreCollection/ExploreCollection";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
     <BrowserRouter>
-    <TopNavBar />
+      <TopNavBar />
       <Sidebar>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ExploreCollection" element={<ExploreCollection />} />
+          <Route path="/Profile" element={<Profile />} />
         </Routes>
         <Footer />
       </Sidebar>

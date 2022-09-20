@@ -4,32 +4,37 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { NavLink } from "react-router-dom";
 import Link from "@mui/material/Link";
+import { useLocation } from "react-router-dom";
 
 //import styles 👇
 import "react-modern-drawer/dist/index.css";
 
 function SideNavigationBar({ children }) {
-
+  const location = useLocation();
   return (
     <>
       <Box sx={{ width: "100%", background: "#1E1E1E" }}>
         <Grid container spacing={0}>
           {/* Navigation bar side */}
           <Grid
+            sx={
+              location.pathname === "/Profile"
+                ? { display: "none" }
+                : {
+                    display: {
+                      md: "block",
+                      xs: "none",
+                    },
+                    borderRight: "0.5px solid #000000",
+                  }
+            }
             item
-            xs={2.3}
-            sx={{
-              display: {
-                md: "block",
-                xs: "none",
-                borderRight: "0.5px solid #000000",
-              },
-            }}
+            xs={location.pathname === "/Profile" ? 0 : 2.3}
           >
             <Box
               sx={{
                 width: "100%",
-                height: "calc(100vh - 80px)",
+                height: "calc(100vh - 90px)",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
@@ -271,7 +276,11 @@ function SideNavigationBar({ children }) {
           </Grid>
 
           {/* Content Side */}
-          <Grid item xs={12} md={9.7}>
+          <Grid
+            item
+            xs={12}
+            md={location.pathname === "/Profile" ? 12 : 9.7}
+          >
             <Box
               sx={{
                 width: "100%",

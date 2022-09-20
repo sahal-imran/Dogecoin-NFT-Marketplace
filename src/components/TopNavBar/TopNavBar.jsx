@@ -25,7 +25,7 @@ function TopNavBar() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          height: "80px",
+          height: "90px",
           px: 3,
           background: "#1E1E1E",
         }}
@@ -39,7 +39,9 @@ function TopNavBar() {
           }}
         >
           {/* Logo */}
-          <Box sx={{ width: {sm:"242px",xs:"200px"}, height: "53px",mr:10 }}>
+          <Box
+            sx={{ width: { sm: "242px", xs: "200px" }, height: "53px", mr: 10 }}
+          >
             <img
               src="/assets/logo.svg"
               alt="logo"
@@ -98,9 +100,13 @@ function TopNavBar() {
               />
             </Badge>
           </IconButton>
-          <IconButton sx={{ "&:hover": { background: "#242424" }, mr: 1 }}>
-            <AccountCircleIcon sx={{ color: "white", fontSize: "30px" }} />
-          </IconButton>
+          <NavLink
+          to={"Profile"}
+          >
+            <IconButton sx={{ "&:hover": { background: "#242424" }, mr: 1 }}>
+              <AccountCircleIcon sx={{ color: "white", fontSize: "30px" }} />
+            </IconButton>
+          </NavLink>
 
           {/* Connect Wallet Button */}
           <Button
