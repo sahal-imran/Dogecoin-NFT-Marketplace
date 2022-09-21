@@ -10,6 +10,26 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Line, defaults } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 function NFT_Detail() {
   const [expanded, setExpanded] = React.useState(false);
@@ -548,6 +568,544 @@ function NFT_Detail() {
             </Grid>
           </Grid>
         </Box>
+
+        <Box sx={{ flexGrow: 1, width: "100%", px: { md: 3 }, mt: 4 }}>
+          <Grid container spacing={3}>
+            <Grid md={6} xs={12}>
+              <Box sx={{ width: "100%" }}>
+                <Accordion
+                  expanded={expanded === "panel4"}
+                  onChange={handleChange("panel4")}
+                  sx={{
+                    width: "100%",
+                    background: "#232222",
+                    borderRadius: "5px",
+                    boxShadow: "none",
+                    py: 1,
+                  }}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon sx={{ color: "#C5AC49" }} />}
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
+                  >
+                    <Box
+                      sx={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "start",
+                        alignItems: "center",
+                      }}
+                    >
+                      {/* Eth ICon */}
+                      <Box
+                        sx={{
+                          width: "42px",
+                          height: "42px",
+                        }}
+                      >
+                        <img
+                          src="/assets/price.svg"
+                          alt="logo"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "contain",
+                          }}
+                        />
+                      </Box>
+                      <Typography
+                        sx={{
+                          fontFamily: "Syne",
+                          color: "white",
+                          fontSize: { md: "20px", xs: "18px" },
+                          lineHeight: "24px",
+                          fontWeight: 600,
+                          fontStyle: "normal",
+                          ml: 2,
+                        }}
+                      >
+                        Price History
+                      </Typography>
+                    </Box>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Box sx={{ width: "100%", minHeight: "200px" }}>
+                      <Line
+                        data={{
+                          labels: [
+                            "1/20",
+                            "1/24",
+                            "1/29",
+                            "2/03",
+                            "2/07",
+                            "2/12",
+                            "2/17",
+                          ],
+                          datasets: [
+                            {
+                              label: "Dataset",
+                              data: [-4.0, -8.0, -6.0, -4.0, -2.0, 0.0, -4.0],
+                              borderColor: "#707070",
+                              backgroundColor: "#707070",
+                              pointStyle: "circle",
+                              pointRadius: 4,
+                              pointHoverRadius: 6,
+                              borderWidth: 1,
+                            },
+                          ],
+                        }}
+                        options={{
+                          maintainAspectRatio: false,
+                          scales: {
+                            yAxes: [
+                              {
+                                ticks: {
+                                  beginAtZero: true,
+                                },
+                              },
+                            ],
+                          },
+                          plugins: {
+                            legend: {
+                              display: false,
+                            },
+                          },
+                        }}
+                      />
+                    </Box>
+                  </AccordionDetails>
+                </Accordion>
+              </Box>
+            </Grid>
+            <Grid md={6} xs={12}>
+              <Box sx={{ width: "100%" }}>
+                <Accordion
+                  expanded={expanded === "panel5"}
+                  onChange={handleChange("panel5")}
+                  sx={{
+                    width: "100%",
+                    background: "#232222",
+                    borderRadius: "5px",
+                    boxShadow: "none",
+                    py: 1,
+                  }}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon sx={{ color: "#C5AC49" }} />}
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
+                  >
+                    <Box
+                      sx={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "start",
+                        alignItems: "center",
+                      }}
+                    >
+                      {/* Eth ICon */}
+                      <Box
+                        sx={{
+                          width: "42px",
+                          height: "42px",
+                        }}
+                      >
+                        <img
+                          src="/assets/details.svg"
+                          alt="logo"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "contain",
+                          }}
+                        />
+                      </Box>
+                      <Typography
+                        sx={{
+                          fontFamily: "Syne",
+                          color: "white",
+                          fontSize: { md: "20px", xs: "18px" },
+                          lineHeight: "24px",
+                          fontWeight: 600,
+                          fontStyle: "normal",
+                          ml: 2,
+                        }}
+                      >
+                        Details
+                      </Typography>
+                    </Box>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography
+                      sx={{
+                        fontFamily: "Syne",
+                        color: "#737373",
+                        fontSize: "16px",
+                        lineHeight: "19px",
+                        fontWeight: 400,
+                        fontStyle: "normal",
+                      }}
+                    >
+                      Nulla facilisi. Phasellus sollicitudin nulla et quam
+                      mattis feugiat. Aliquam eget maximus est, id dignissim
+                      quam.
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+
+        {/* Offer */}
+        <Box sx={{ width: "100%", px: { md: 3 }, mt: 3 }}>
+          <Accordion
+            expanded={expanded === "panel6"}
+            onChange={handleChange("panel6")}
+            sx={{
+              width: "100%",
+              background: "#232222",
+              borderRadius: "5px",
+              boxShadow: "none",
+              py: 1,
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "#C5AC49" }} />}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+            >
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "start",
+                  alignItems: "center",
+                }}
+              >
+                {/* Eth ICon */}
+                <Box
+                  sx={{
+                    width: "42px",
+                    height: "42px",
+                  }}
+                >
+                  <img
+                    src="/assets/offer.svg"
+                    alt="logo"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </Box>
+                <Typography
+                  sx={{
+                    fontFamily: "Syne",
+                    color: "white",
+                    fontSize: { md: "20px", xs: "18px" },
+                    lineHeight: "24px",
+                    fontWeight: 600,
+                    fontStyle: "normal",
+                    ml: 2,
+                  }}
+                >
+                  Offer (1)
+                </Typography>
+              </Box>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Syne",
+                  color: "#737373",
+                  fontSize: "16px",
+                  lineHeight: "19px",
+                  fontWeight: 400,
+                  fontStyle: "normal",
+                }}
+              >
+                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
+                feugiat. Aliquam eget maximus est, id dignissim quam.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </Box>
+
+        {/* Activities */}
+        <Box sx={{ width: "100%", px: { md: 3 }, mt: 3 }}>
+          <Accordion
+            expanded={expanded === "panel7"}
+            onChange={handleChange("panel7")}
+            sx={{
+              width: "100%",
+              background: "#232222",
+              borderRadius: "5px",
+              boxShadow: "none",
+              py: 1,
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "#C5AC49" }} />}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+            >
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "start",
+                  alignItems: "center",
+                }}
+              >
+                {/* Eth ICon */}
+                <Box
+                  sx={{
+                    width: "42px",
+                    height: "42px",
+                  }}
+                >
+                  <img
+                    src="/assets/price.svg"
+                    alt="logo"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </Box>
+                <Typography
+                  sx={{
+                    fontFamily: "Syne",
+                    color: "white",
+                    fontSize: { md: "20px", xs: "18px" },
+                    lineHeight: "24px",
+                    fontWeight: 600,
+                    fontStyle: "normal",
+                    ml: 2,
+                  }}
+                >
+                  Activites
+                </Typography>
+              </Box>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Syne",
+                  color: "#737373",
+                  fontSize: "16px",
+                  lineHeight: "19px",
+                  fontWeight: 400,
+                  fontStyle: "normal",
+                }}
+              >
+                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
+                feugiat. Aliquam eget maximus est, id dignissim quam.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </Box>
+
+        {/* More from Collection */}
+        <Box sx={{ width: "100%", px: { md: 3 }, mt: 3 }}>
+          <Accordion
+            expanded={expanded === "panel8"}
+            onChange={handleChange("panel8")}
+            sx={{
+              width: "100%",
+              background: "#232222",
+              borderRadius: "5px",
+              boxShadow: "none",
+              py: 1,
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "#C5AC49" }} />}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+            >
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "start",
+                  alignItems: "center",
+                }}
+              >
+                {/* Eth ICon */}
+                <Box
+                  sx={{
+                    width: "42px",
+                    height: "42px",
+                  }}
+                >
+                  <img
+                    src="/assets/collection.svg"
+                    alt="logo"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </Box>
+                <Typography
+                  sx={{
+                    fontFamily: "Syne",
+                    color: "white",
+                    fontSize: { md: "20px", xs: "18px" },
+                    lineHeight: "24px",
+                    fontWeight: 600,
+                    fontStyle: "normal",
+                    ml: 2,
+                  }}
+                >
+                  More from this collecti0n
+                </Typography>
+              </Box>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Box sx={{ width: "100%" }}>
+                {/* cards */}
+                <Box sx={{ flexGrow: 1, width: "100%" }}>
+                  <Grid container spacing={2}>
+                    {Cards.map((item, index) => {
+                      return (
+                        <Grid key={index} xs={12} sm={6} md={4}>
+                          <Box
+                            sx={{
+                              width: "100%",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "start",
+                              flexDirection: "column",
+                              background: "#333333",
+                              borderRadius: "5px",
+                              p: 1,
+                            }}
+                          >
+                            {/* Image */}
+                            <Box
+                              sx={{
+                                width: "100%",
+                                height: "367px",
+                                borderTopLeftRadius: "5px",
+                                borderTopRightRadius: "5px",
+                                overflow: "hidden",
+                              }}
+                            >
+                              <img
+                                src={item.URL}
+                                alt="1"
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  objectFit: "cover",
+                                }}
+                              />
+                            </Box>
+
+                            {/* Text */}
+                            <Typography
+                              sx={{
+                                fontFamily: "Syne",
+                                color: "white",
+                                fontSize: { md: "24px", xs: "20px" },
+                                lineHeight: { md: "28.8px", xs: "26px" },
+                                fontWeight: 700,
+                                fontStyle: "normal",
+                                textTransform: "capitalize",
+                                alignSelf: "start",
+                                mt: 3,
+                              }}
+                            >
+                              {item.Name}
+                            </Typography>
+                            <Box
+                              sx={{
+                                mt: 2,
+                                width: "100%",
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  width: "123px",
+                                  height: "41px",
+                                  borderRadius: "3px",
+                                  border: "1px solid #1FF775",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <Typography
+                                  sx={{
+                                    fontFamily: "Syne",
+                                    color: "#1FF675",
+                                    fontSize: "16px",
+                                    lineHeight: "19.2px",
+                                    fontWeight: 600,
+                                    fontStyle: "normal",
+                                    textTransform: "capitalize",
+                                  }}
+                                >
+                                  {item.Price}
+                                </Typography>
+                              </Box>
+                              <Typography
+                                sx={{
+                                  fontFamily: "Syne",
+                                  color: "#737373",
+                                  fontSize: "18px",
+                                  lineHeight: "27px",
+                                  fontWeight: 400,
+                                  fontStyle: "normal",
+                                  alignSelf: "end",
+                                }}
+                              >
+                                {item.Stocks}
+                              </Typography>
+                            </Box>
+
+                            <Box
+                              sx={{
+                                width: "100%",
+                                height: "1px",
+                                background: "#000000",
+                                mt: 3,
+                              }}
+                            ></Box>
+                            <Typography
+                              sx={{
+                                fontFamily: "Syne",
+                                color: "#737373",
+                                fontSize: "16px",
+                                lineHeight: "24px",
+                                fontWeight: 400,
+                                fontStyle: "normal",
+                                textAlign: "center",
+                                mt: 2,
+                              }}
+                            >
+                              {item.Hightest_Bid}
+                            </Typography>
+                          </Box>
+                        </Grid>
+                      );
+                    })}
+                  </Grid>
+                </Box>
+              </Box>
+            </AccordionDetails>
+          </Accordion>
+        </Box>
       </Box>
     </>
   );
@@ -590,5 +1148,32 @@ const Attributes_Card = [
     Type: "Clothing",
     Title: "Go to prison",
     trait: "2.6% have this trait",
+  },
+];
+
+const Cards = [
+  {
+    to: "/nftdetails",
+    URL: "/assets/Upcoming collection/1.svg",
+    Name: "Degen Sweeper #236",
+    Price: "2.56 ETH",
+    Stocks: "3 in Stock",
+    Hightest_Bid: "Highest bid 0.001 ETH",
+  },
+  {
+    to: "/nftdetails",
+    URL: "/assets/Upcoming collection/2.svg",
+    Name: "Degen Sweeper #236",
+    Price: "2.56 ETH",
+    Stocks: "3 in Stock",
+    Hightest_Bid: "Highest bid 0.001 ETH",
+  },
+  {
+    to: "/nftdetails",
+    URL: "/assets/Upcoming collection/3.svg",
+    Name: "Degen Sweeper #236",
+    Price: "2.56 ETH",
+    Stocks: "3 in Stock",
+    Hightest_Bid: "Highest bid 0.001 ETH",
   },
 ];
