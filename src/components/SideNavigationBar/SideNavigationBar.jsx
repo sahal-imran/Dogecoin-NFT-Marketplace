@@ -18,7 +18,8 @@ function SideNavigationBar({ children }) {
           {/* Navigation bar side */}
           <Grid
             sx={
-              location.pathname === "/Profile"
+              location.pathname === "/Profile" ||
+              location.pathname === "/nftdetails"
                 ? { display: "none" }
                 : {
                     display: {
@@ -29,7 +30,12 @@ function SideNavigationBar({ children }) {
                   }
             }
             item
-            xs={location.pathname === "/Profile" ? 0 : 2.3}
+            xs={
+              location.pathname === "/Profile" ||
+              location.pathname === "/nftdetails"
+                ? 0
+                : 2.3
+            }
           >
             <Box
               sx={{
@@ -279,7 +285,12 @@ function SideNavigationBar({ children }) {
           <Grid
             item
             xs={12}
-            md={location.pathname === "/Profile" ? 12 : 9.7}
+            md={
+              location.pathname === "/Profile" ||
+              location.pathname === "/nftdetails"
+                ? 12
+                : 9.7
+            }
           >
             <Box
               sx={{

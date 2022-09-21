@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import TopNavBar from "./components/TopNavBar/TopNavBar";
 import ExploreCollection from "./components/ExploreCollection/ExploreCollection";
 import Profile from "./components/Profile/Profile";
+import NFT_Detail from "./components/NFT_Detail/NFT_Detail";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/ExploreCollection" element={<ExploreCollection />} />
           <Route path="/Profile" element={<Profile />} />
+          <Route path="/nftdetails" element={<NFT_Detail />} />
         </Routes>
         <Footer />
       </Sidebar>

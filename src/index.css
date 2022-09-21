@@ -18,6 +18,11 @@ body {
 #ExploreBanner {
   background-image: url("/public/assets/ExploreBanner.svg");
 }
+.Grad {
+  background: -webkit-linear-gradient(90deg, #ba9f33 0%, #e1ce83 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 @media screen and (max-width: 1000px) {
 }
