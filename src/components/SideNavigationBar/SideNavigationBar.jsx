@@ -1,16 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { NavLink } from "react-router-dom";
 import Link from "@mui/material/Link";
 import { useLocation } from "react-router-dom";
+import Typography from "@mui/material/Typography";
 
 //import styles 👇
 import "react-modern-drawer/dist/index.css";
 
 function SideNavigationBar({ children }) {
   const location = useLocation();
+  const [IsCollpsed, Set_IsCollpsed] = useState(false);
+
+  const OnCollpse_Right = () => {
+    if (
+      location.pathname === "/Profile" ||
+      location.pathname === "/nftdetails"
+    ) {
+      return 12;
+    } else if (IsCollpsed) {
+      return 11;
+    } else {
+      return 9.7;
+    }
+  };
+
+  useEffect(() => {
+    if (location.pathname === "/collectiondetail") {
+      Set_IsCollpsed(true);
+    } else {
+      Set_IsCollpsed(false);
+    }
+  }, [location.pathname]);
+
   return (
     <>
       <Box sx={{ width: "100%", background: "#1E1E1E" }}>
@@ -30,12 +54,7 @@ function SideNavigationBar({ children }) {
                   }
             }
             item
-            xs={
-              location.pathname === "/Profile" ||
-              location.pathname === "/nftdetails"
-                ? 0
-                : 2.3
-            }
+            xs={location.pathname === "/collectiondetail" ? 1 : 2.3}
           >
             <Box
               sx={{
@@ -67,13 +86,6 @@ function SideNavigationBar({ children }) {
                     height: "60px",
                     borderRadius: "5px",
                     borderColor: "#BA9F33",
-                    fontFamily: "Syne",
-                    color: "white",
-                    fontSize: "20px",
-                    lineHeight: "24px",
-                    fontWeight: 600,
-                    fontStyle: "normal",
-                    textTransform: "capitalize",
                     "&:hover": {
                       borderColor: "#BA9F33",
                     },
@@ -89,10 +101,24 @@ function SideNavigationBar({ children }) {
                       width: "30px",
                       height: "30px",
                       objectFit: "contain",
-                      marginRight: "16px",
                     }}
                   />
-                  Marketplace
+                  {!IsCollpsed && (
+                    <Typography
+                      sx={{
+                        ml: 2,
+                        fontFamily: "Syne",
+                        color: "white",
+                        fontSize: "20px",
+                        lineHeight: "24px",
+                        fontWeight: 600,
+                        fontStyle: "normal",
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      Marketplace
+                    </Typography>
+                  )}
                 </Button>
 
                 {/* Nav Items */}
@@ -107,54 +133,70 @@ function SideNavigationBar({ children }) {
                     flexDirection: "column",
                   }}
                 >
-                  <NavLink
-                    to={"/ExploreCollection"}
-                    style={{
-                      textDecoration: "none",
-                      fontFamily: "Syne",
-                      color: "#858585",
-                      fontSize: "20px",
-                      lineHeight: "24px",
-                      fontWeight: 600,
-                      fontStyle: "normal",
-                      textTransform: "capitalize",
-                    }}
-                    className={location.pathname === "/ExploreCollection" ? "Grad" : ""}
-                  >
-                    Popular Collection
-                  </NavLink>
-                  <NavLink
-                    to={""}
-                    style={{
-                      marginTop: "12px",
-                      textDecoration: "none",
-                      fontFamily: "Syne",
-                      color: "#858585",
-                      fontSize: "20px",
-                      lineHeight: "24px",
-                      fontWeight: 600,
-                      fontStyle: "normal",
-                      textTransform: "capitalize",
-                    }}
-                  >
-                    Newly Listed
-                  </NavLink>
-                  <NavLink
-                    to={""}
-                    style={{
-                      marginTop: "12px",
-                      textDecoration: "none",
-                      fontFamily: "Syne",
-                      color: "#858585",
-                      fontSize: "20px",
-                      lineHeight: "24px",
-                      fontWeight: 600,
-                      fontStyle: "normal",
-                      textTransform: "capitalize",
-                    }}
-                  >
-                    Aution
-                  </NavLink>
+                  {!IsCollpsed && (
+                    <Box
+                      sx={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "start",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <NavLink
+                        to={"/ExploreCollection"}
+                        style={{
+                          textDecoration: "none",
+                          fontFamily: "Syne",
+                          color: "#858585",
+                          fontSize: "20px",
+                          lineHeight: "24px",
+                          fontWeight: 600,
+                          fontStyle: "normal",
+                          textTransform: "capitalize",
+                        }}
+                        className={
+                          location.pathname === "/ExploreCollection"
+                            ? "Grad"
+                            : ""
+                        }
+                      >
+                        Popular Collection
+                      </NavLink>
+                      <NavLink
+                        to={""}
+                        style={{
+                          marginTop: "12px",
+                          textDecoration: "none",
+                          fontFamily: "Syne",
+                          color: "#858585",
+                          fontSize: "20px",
+                          lineHeight: "24px",
+                          fontWeight: 600,
+                          fontStyle: "normal",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        Newly Listed
+                      </NavLink>
+                      <NavLink
+                        to={""}
+                        style={{
+                          marginTop: "12px",
+                          textDecoration: "none",
+                          fontFamily: "Syne",
+                          color: "#858585",
+                          fontSize: "20px",
+                          lineHeight: "24px",
+                          fontWeight: 600,
+                          fontStyle: "normal",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        Aution
+                      </NavLink>
+                    </Box>
+                  )}
 
                   {/* Nav Items */}
                   <Box
@@ -173,18 +215,14 @@ function SideNavigationBar({ children }) {
                           style={{
                             marginTop: "32px",
                             textDecoration: "none",
-                            fontFamily: "Syne",
-                            color: "white",
-                            fontSize: "20px",
-                            lineHeight: "24px",
-                            fontWeight: 600,
-                            fontStyle: "normal",
                             textTransform: "capitalize",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
                           }}
-                          className={location.pathname === item.URL ? "Grad" : ""}
+                          className={
+                            location.pathname === item.URL ? "Grad" : ""
+                          }
                         >
                           <img
                             src={item.ico}
@@ -193,10 +231,23 @@ function SideNavigationBar({ children }) {
                               width: "32px",
                               height: "32px",
                               objectFit: "contain",
-                              marginRight: "12px",
                             }}
                           />
-                          {item.Name}
+                          {!IsCollpsed && (
+                            <Typography
+                              sx={{
+                                ml: 1.6,
+                                fontFamily: "Syne",
+                                color: "white",
+                                fontSize: "20px",
+                                lineHeight: "24px",
+                                fontWeight: 600,
+                                fontStyle: "normal",
+                              }}
+                            >
+                              {item.Name}
+                            </Typography>
+                          )}
                         </NavLink>
                       );
                     })}
@@ -205,95 +256,88 @@ function SideNavigationBar({ children }) {
               </Box>
 
               {/* Bottom sections */}
-              <Box
-                sx={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flexDirection: "column",
-                }}
-              >
-                <Button
-                  variant="contained"
-                  sx={{
-                    p: 0,
-                    width: "100%",
-                    height: "56px",
-                    borderRadius: "5px",
-                    fontFamily: "Syne",
-                    color: "white",
-                    fontSize: "20px",
-                    lineHeight: "24px",
-                    fontWeight: 600,
-                    fontStyle: "normal",
-                    textTransform: "unset",
-                    background:
-                      "linear-gradient(90deg, #BA9F33 0%, #E1CE83 100%)",
-                  }}
-                >
-                  Create NFTs
-                </Button>
-
-                {/* Social icons */}
+              {!IsCollpsed && (
                 <Box
                   sx={{
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    mt: 2,
+                    flexDirection: "column",
                   }}
                 >
-                  {Socail_Links.map((item, index) => {
-                    return (
-                      <Link
-                        key={index}
-                        href={item.ref}
-                        target={"_blank"}
-                        sx={
-                          index === 3
-                            ? {
-                                width: "24px",
-                                height: "24px",
-                                textDecoration: "none",
-                              }
-                            : {
-                                width: "24px",
-                                height: "24px",
-                                textDecoration: "none",
-                                mr: 2,
-                              }
-                        }
-                      >
-                        <img
-                          src={item.icoURL}
-                          alt="logo"
-                          style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "contain",
-                          }}
-                        />
-                      </Link>
-                    );
-                  })}
+                  <Button
+                    variant="contained"
+                    sx={{
+                      p: 0,
+                      width: "100%",
+                      height: "56px",
+                      borderRadius: "5px",
+                      fontFamily: "Syne",
+                      color: "white",
+                      fontSize: "20px",
+                      lineHeight: "24px",
+                      fontWeight: 600,
+                      fontStyle: "normal",
+                      textTransform: "unset",
+                      background:
+                        "linear-gradient(90deg, #BA9F33 0%, #E1CE83 100%)",
+                    }}
+                  >
+                    Create NFTs
+                  </Button>
+
+                  {/* Social icons */}
+                  <Box
+                    sx={{
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      mt: 2,
+                    }}
+                  >
+                    {Socail_Links.map((item, index) => {
+                      return (
+                        <Link
+                          key={index}
+                          href={item.ref}
+                          target={"_blank"}
+                          sx={
+                            index === 3
+                              ? {
+                                  width: "24px",
+                                  height: "24px",
+                                  textDecoration: "none",
+                                }
+                              : {
+                                  width: "24px",
+                                  height: "24px",
+                                  textDecoration: "none",
+                                  mr: 2,
+                                }
+                          }
+                        >
+                          <img
+                            src={item.icoURL}
+                            alt="logo"
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "contain",
+                            }}
+                          />
+                        </Link>
+                      );
+                    })}
+                  </Box>
                 </Box>
-              </Box>
+              )}
             </Box>
           </Grid>
 
           {/* Content Side */}
-          <Grid
-            item
-            xs={12}
-            md={
-              location.pathname === "/Profile" ||
-              location.pathname === "/nftdetails"
-                ? 12
-                : 9.7
-            }
-          >
+          <Grid item xs={12} md={OnCollpse_Right()}>
             <Box
               sx={{
                 width: "100%",

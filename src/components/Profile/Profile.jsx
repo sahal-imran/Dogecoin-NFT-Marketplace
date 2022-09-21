@@ -112,7 +112,7 @@ function Profile() {
           id="ExploreBanner"
           sx={{
             width: "100%",
-            height: { xs: "328px", xs: "400px" },
+            height: { md: "328px", xs: "400px" },
             display: "flex",
             justifyContent: { md: "end", xs: "center" },
             alignItems: { md: "end", xs: "center" },

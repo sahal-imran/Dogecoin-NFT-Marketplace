@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { NavLink } from "react-router-dom";
 
 function ExploreCollection() {
   const [AllItem, Set_AllItem] = useState(true);
@@ -383,30 +384,32 @@ function ExploreCollection() {
         </Box>
 
         {/* View ALL */}
-        <Button
-          variant="contained"
-          sx={{
-            p: 0,
-            width: "194px",
-            height: "56px",
-            borderRadius: "5px",
-            fontFamily: "Syne",
-            color: "#9855F5",
-            fontSize: "20px",
-            lineHeight: "24px",
-            fontWeight: 600,
-            fontStyle: "normal",
-            textTransform: "capitalize",
-            background: "linear-gradient(90deg, #E0D1D5 0%, #D6D6D6 100%)",
-            boxShadow: "none",
-            "&:hover": {
+        <NavLink to="/collectiondetail" style={{ textDecoration: "none" }}>
+          <Button
+            variant="contained"
+            sx={{
+              p: 0,
+              width: "194px",
+              height: "56px",
+              borderRadius: "5px",
+              fontFamily: "Syne",
+              color: "#9855F5",
+              fontSize: "20px",
+              lineHeight: "24px",
+              fontWeight: 600,
+              fontStyle: "normal",
+              textTransform: "capitalize",
               background: "linear-gradient(90deg, #E0D1D5 0%, #D6D6D6 100%)",
               boxShadow: "none",
-            },
-          }}
-        >
-          View all
-        </Button>
+              "&:hover": {
+                background: "linear-gradient(90deg, #E0D1D5 0%, #D6D6D6 100%)",
+                boxShadow: "none",
+              },
+            }}
+          >
+            View all
+          </Button>
+        </NavLink>
       </Box>
     </>
   );
