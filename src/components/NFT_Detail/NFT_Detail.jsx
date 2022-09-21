@@ -57,7 +57,7 @@ function NFT_Detail() {
               <Box
                 sx={{
                   width: "100%",
-                  height: "850px",
+                  height: {md:"850px",xs:"auto"},
                 }}
               >
                 <img

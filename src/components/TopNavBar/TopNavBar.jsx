@@ -10,8 +10,10 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Badge from "@mui/material/Badge";
 import Hamburger from "hamburger-react";
 import Drawer from "react-modern-drawer";
+import { useLocation } from "react-router-dom";
 
 function TopNavBar() {
+  const location = useLocation();
   const [isOpen, setOpen] = useState(false);
   const toggleDrawer = () => {
     setOpen((prevState) => !prevState);
@@ -100,9 +102,7 @@ function TopNavBar() {
               />
             </Badge>
           </IconButton>
-          <NavLink
-          to={"Profile"}
-          >
+          <NavLink to={"Profile"}>
             <IconButton sx={{ "&:hover": { background: "#242424" }, mr: 1 }}>
               <AccountCircleIcon sx={{ color: "white", fontSize: "30px" }} />
             </IconButton>
@@ -326,6 +326,7 @@ function TopNavBar() {
                         justifyContent: "center",
                         alignItems: "center",
                       }}
+                      className={location.pathname === item.URL ? "Grad" : ""}
                     >
                       <img
                         src={item.ico}

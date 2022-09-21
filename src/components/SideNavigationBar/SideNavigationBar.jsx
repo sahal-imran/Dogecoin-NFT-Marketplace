@@ -119,6 +119,7 @@ function SideNavigationBar({ children }) {
                       fontStyle: "normal",
                       textTransform: "capitalize",
                     }}
+                    className={location.pathname === "/ExploreCollection" ? "Grad" : ""}
                   >
                     Popular Collection
                   </NavLink>
@@ -183,6 +184,7 @@ function SideNavigationBar({ children }) {
                             justifyContent: "center",
                             alignItems: "center",
                           }}
+                          className={location.pathname === item.URL ? "Grad" : ""}
                         >
                           <img
                             src={item.ico}
