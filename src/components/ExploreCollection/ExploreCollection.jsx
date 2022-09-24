@@ -278,105 +278,107 @@ function ExploreCollection() {
             {ExploreCollectionData.map((item, index) => {
               return (
                 <Grid key={index} item xs={12} sm={6} md={3}>
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "start",
-                      flexDirection: "column",
-                      background: "#232222",
-                      borderRadius: "5px",
-                      p: 1,
-                    }}
-                  >
-                    {/* Image */}
+                  <NavLink to={item.to} style={{ textDecoration: "none" }}>
                     <Box
                       sx={{
                         width: "100%",
-                        height: "367px",
-                        borderTopLeftRadius: "5px",
-                        borderTopRightRadius: "5px",
-                        overflow: "hidden",
-                      }}
-                    >
-                      <img
-                        src={item.URL}
-                        alt="1"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      />
-                    </Box>
-                    <Typography
-                      sx={{
-                        fontFamily: "Syne",
-                        color: "white",
-                        fontSize: { md: "24px", xs: "20px" },
-                        lineHeight: { md: "28.8px", xs: "26px" },
-                        fontWeight: 700,
-                        fontStyle: "normal",
-                        textTransform: "capitalize",
-                        mt: 3,
-                      }}
-                    >
-                      {item.name}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontFamily: "Syne",
-                        color: "#737373",
-                        fontSize: { md: "18px", xs: "16px" },
-                        lineHeight: { md: "21px", xs: "26px" },
-                        fontWeight: 400,
-                        fontStyle: "normal",
-                        textAlign: "center",
-                        my: 1,
-                      }}
-                    >
-                      {item.des}
-                    </Typography>
-                    <Box
-                      sx={{
                         display: "flex",
                         justifyContent: "center",
-                        alignItems: "center",
+                        alignItems: "start",
+                        flexDirection: "column",
+                        background: "#232222",
+                        borderRadius: "5px",
+                        p: 1,
                       }}
                     >
+                      {/* Image */}
                       <Box
                         sx={{
-                          width: "20px",
-                          height: "20px",
-                          mr: 1,
+                          width: "100%",
+                          height: "367px",
+                          borderTopLeftRadius: "5px",
+                          borderTopRightRadius: "5px",
+                          overflow: "hidden",
                         }}
                       >
                         <img
-                          src={"/assets/eth.svg"}
-                          alt="logo"
+                          src={item.URL}
+                          alt="1"
                           style={{
                             width: "100%",
                             height: "100%",
-                            objectFit: "contain",
+                            objectFit: "cover",
                           }}
                         />
                       </Box>
                       <Typography
                         sx={{
                           fontFamily: "Syne",
-                          color: "#EDEDED",
-                          fontSize: "14px",
-                          lineHeight: "17px",
-                          fontWeight: 400,
+                          color: "white",
+                          fontSize: { md: "24px", xs: "20px" },
+                          lineHeight: { md: "28.8px", xs: "26px" },
+                          fontWeight: 700,
                           fontStyle: "normal",
                           textTransform: "capitalize",
+                          mt: 3,
                         }}
                       >
-                        {item.price}
+                        {item.name}
                       </Typography>
+                      <Typography
+                        sx={{
+                          fontFamily: "Syne",
+                          color: "#737373",
+                          fontSize: { md: "18px", xs: "16px" },
+                          lineHeight: { md: "21px", xs: "26px" },
+                          fontWeight: 400,
+                          fontStyle: "normal",
+                          textAlign: "center",
+                          my: 1,
+                        }}
+                      >
+                        {item.des}
+                      </Typography>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            width: "20px",
+                            height: "20px",
+                            mr: 1,
+                          }}
+                        >
+                          <img
+                            src={"/assets/eth.svg"}
+                            alt="logo"
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "contain",
+                            }}
+                          />
+                        </Box>
+                        <Typography
+                          sx={{
+                            fontFamily: "Syne",
+                            color: "#EDEDED",
+                            fontSize: "14px",
+                            lineHeight: "17px",
+                            fontWeight: 400,
+                            fontStyle: "normal",
+                            textTransform: "capitalize",
+                          }}
+                        >
+                          {item.price}
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
+                  </NavLink>
                 </Grid>
               );
             })}
@@ -384,32 +386,30 @@ function ExploreCollection() {
         </Box>
 
         {/* View ALL */}
-        <NavLink to="/collectiondetail" style={{ textDecoration: "none" }}>
-          <Button
-            variant="contained"
-            sx={{
-              p: 0,
-              width: "194px",
-              height: "56px",
-              borderRadius: "5px",
-              fontFamily: "Syne",
-              color: "#9855F5",
-              fontSize: "20px",
-              lineHeight: "24px",
-              fontWeight: 600,
-              fontStyle: "normal",
-              textTransform: "capitalize",
+        <Button
+          variant="contained"
+          sx={{
+            p: 0,
+            width: "194px",
+            height: "56px",
+            borderRadius: "5px",
+            fontFamily: "Syne",
+            color: "#9855F5",
+            fontSize: "20px",
+            lineHeight: "24px",
+            fontWeight: 600,
+            fontStyle: "normal",
+            textTransform: "capitalize",
+            background: "linear-gradient(90deg, #E0D1D5 0%, #D6D6D6 100%)",
+            boxShadow: "none",
+            "&:hover": {
               background: "linear-gradient(90deg, #E0D1D5 0%, #D6D6D6 100%)",
               boxShadow: "none",
-              "&:hover": {
-                background: "linear-gradient(90deg, #E0D1D5 0%, #D6D6D6 100%)",
-                boxShadow: "none",
-              },
-            }}
-          >
-            View all
-          </Button>
-        </NavLink>
+            },
+          }}
+        >
+          View all
+        </Button>
       </Box>
     </>
   );
@@ -419,48 +419,56 @@ export default ExploreCollection;
 
 const ExploreCollectionData = [
   {
+    to: "/collectiondetail",
     URL: "/assets/ExploreCollection/1.svg",
     name: "Boring Ape",
     des: "Volume Total",
     price: "277.9k",
   },
   {
+    to: "/collectiondetail",
     URL: "/assets/ExploreCollection/2.svg",
     name: "Pixels",
     des: "Volume Total",
     price: "277.9k",
   },
   {
+    to: "/collectiondetail",
     URL: "/assets/ExploreCollection/3.svg",
     name: "Frozen People",
     des: "Volume Total",
     price: "277.9k",
   },
   {
+    to: "/collectiondetail",
     URL: "/assets/ExploreCollection/4.svg",
     name: "Hen n Bun",
     des: "Volume Total",
     price: "277.9k",
   },
   {
+    to: "/collectiondetail",
     URL: "/assets/ExploreCollection/5.svg",
     name: "Spicy Chicken",
     des: "Volume Total",
     price: "277.9k",
   },
   {
+    to: "/collectiondetail",
     URL: "/assets/ExploreCollection/6.svg",
     name: "Rabbits",
     des: "Volume Total",
     price: "277.9k",
   },
   {
+    to: "/collectiondetail",
     URL: "/assets/ExploreCollection/7.svg",
     name: "Zombies",
     des: "Volume Total",
     price: "277.9k",
   },
   {
+    to: "/collectiondetail",
     URL: "/assets/ExploreCollection/8.svg",
     name: "Abstract",
     des: "Volume Total",

@@ -164,7 +164,7 @@ function SideNavigationBar({ children }) {
                         Popular Collection
                       </NavLink>
                       <NavLink
-                        to={""}
+                        to={"/newlistedCollection"}
                         style={{
                           marginTop: "12px",
                           textDecoration: "none",
@@ -176,6 +176,11 @@ function SideNavigationBar({ children }) {
                           fontStyle: "normal",
                           textTransform: "capitalize",
                         }}
+                        className={
+                          location.pathname === "/newlistedCollection"
+                            ? "Grad"
+                            : ""
+                        }
                       >
                         Newly Listed
                       </NavLink>

@@ -526,131 +526,126 @@ function Profile() {
                     {Cards.map((item, index) => {
                       return (
                         <Grid key={index} xs={12} sm={6} md={4}>
-                          <NavLink
-                            to={item.to}
-                            style={{ textDecoration: "none" }}
+                          <Box
+                            sx={{
+                              width: "100%",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "start",
+                              flexDirection: "column",
+                              background: "#232222",
+                              borderRadius: "5px",
+                              p: 1,
+                            }}
                           >
+                            {/* Image */}
                             <Box
                               sx={{
                                 width: "100%",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "start",
-                                flexDirection: "column",
-                                background: "#232222",
-                                borderRadius: "5px",
-                                p: 1,
+                                height: "367px",
+                                borderTopLeftRadius: "5px",
+                                borderTopRightRadius: "5px",
+                                overflow: "hidden",
                               }}
                             >
-                              {/* Image */}
-                              <Box
-                                sx={{
+                              <img
+                                src={item.URL}
+                                alt="1"
+                                style={{
                                   width: "100%",
-                                  height: "367px",
-                                  borderTopLeftRadius: "5px",
-                                  borderTopRightRadius: "5px",
-                                  overflow: "hidden",
+                                  height: "100%",
+                                  objectFit: "cover",
+                                }}
+                              />
+                            </Box>
+
+                            {/* Text */}
+                            <Box
+                              sx={{
+                                mt: 2,
+                                width: "100%",
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  fontFamily: "Syne",
+                                  color: "white",
+                                  fontSize: { md: "24px", xs: "20px" },
+                                  lineHeight: { md: "28.8px", xs: "26px" },
+                                  fontWeight: 700,
+                                  fontStyle: "normal",
+                                  textTransform: "capitalize",
                                 }}
                               >
-                                <img
-                                  src={item.URL}
-                                  alt="1"
-                                  style={{
-                                    width: "100%",
-                                    height: "100%",
-                                    objectFit: "cover",
-                                  }}
-                                />
-                              </Box>
-
-                              {/* Text */}
+                                {item.Name}
+                              </Typography>
                               <Box
                                 sx={{
-                                  mt: 2,
-                                  width: "100%",
+                                  width: "123px",
+                                  height: "41px",
+                                  borderRadius: "3px",
+                                  border: "1px solid #1FF775",
                                   display: "flex",
-                                  justifyContent: "space-between",
+                                  justifyContent: "center",
                                   alignItems: "center",
                                 }}
                               >
                                 <Typography
                                   sx={{
                                     fontFamily: "Syne",
-                                    color: "white",
-                                    fontSize: { md: "24px", xs: "20px" },
-                                    lineHeight: { md: "28.8px", xs: "26px" },
-                                    fontWeight: 700,
+                                    color: "#1FF675",
+                                    fontSize: "16px",
+                                    lineHeight: "19.2px",
+                                    fontWeight: 600,
                                     fontStyle: "normal",
                                     textTransform: "capitalize",
                                   }}
                                 >
-                                  {item.Name}
+                                  {item.Price}
                                 </Typography>
-                                <Box
-                                  sx={{
-                                    width: "123px",
-                                    height: "41px",
-                                    borderRadius: "3px",
-                                    border: "1px solid #1FF775",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                  <Typography
-                                    sx={{
-                                      fontFamily: "Syne",
-                                      color: "#1FF675",
-                                      fontSize: "16px",
-                                      lineHeight: "19.2px",
-                                      fontWeight: 600,
-                                      fontStyle: "normal",
-                                      textTransform: "capitalize",
-                                    }}
-                                  >
-                                    {item.Price}
-                                  </Typography>
-                                </Box>
                               </Box>
-
-                              <Typography
-                                sx={{
-                                  fontFamily: "Syne",
-                                  color: "#737373",
-                                  fontSize: "18px",
-                                  lineHeight: "27px",
-                                  fontWeight: 400,
-                                  fontStyle: "normal",
-                                  alignSelf: "end",
-                                  mr: 2,
-                                }}
-                              >
-                                {item.Stocks}
-                              </Typography>
-                              <Box
-                                sx={{
-                                  width: "100%",
-                                  height: "1px",
-                                  background: "#000000",
-                                  mt: 3,
-                                }}
-                              ></Box>
-                              <Typography
-                                sx={{
-                                  fontFamily: "Syne",
-                                  color: "#737373",
-                                  fontSize: "16px",
-                                  lineHeight: "24px",
-                                  fontWeight: 400,
-                                  fontStyle: "normal",
-                                  textAlign: "center",
-                                  mt: 2,
-                                }}
-                              >
-                                {item.Hightest_Bid}
-                              </Typography>
                             </Box>
-                          </NavLink>
+
+                            <Typography
+                              sx={{
+                                fontFamily: "Syne",
+                                color: "#737373",
+                                fontSize: "18px",
+                                lineHeight: "27px",
+                                fontWeight: 400,
+                                fontStyle: "normal",
+                                alignSelf: "end",
+                                mr: 2,
+                              }}
+                            >
+                              {item.Stocks}
+                            </Typography>
+                            <Box
+                              sx={{
+                                width: "100%",
+                                height: "1px",
+                                background: "#000000",
+                                mt: 3,
+                              }}
+                            ></Box>
+                            <Typography
+                              sx={{
+                                fontFamily: "Syne",
+                                color: "#737373",
+                                fontSize: "16px",
+                                lineHeight: "24px",
+                                fontWeight: 400,
+                                fontStyle: "normal",
+                                textAlign: "center",
+                                mt: 2,
+                              }}
+                            >
+                              {item.Hightest_Bid}
+                            </Typography>
+                          </Box>
                         </Grid>
                       );
                     })}
